@@ -4,6 +4,7 @@ $( document ).ready(function() {
   $('#countryVariety').hide();
   $('#countries').hide();
   $('#redVarieties').hide();
+  $('#whiteVarieties').hide();
 
   var zipcode = '';
   var wineType = '';
@@ -11,30 +12,41 @@ $( document ).ready(function() {
 
   $('#zipSubmit').click(function() {
     zipcode = $('#zipcode').val();
-    $('#wineType').fadeToggle();
+    $('#wineType').fadeIn();
+    $('#zipSubmit').fadeOut();
+    $('#countryVariety').hide();
+    $('#countries').hide();
+    $('#redVarieties').hide();
   })
 
   $('#wineType').click(function(e) {
     wineType = $(e.target).val();
-    $('#countryVariety').fadeToggle();
-
-  $('#countryVariety').click(function(e) {
-      countryVariety = $(e.target).val();
-      if(countryVariety === 'country') {
-        $('#countries').fadeToggle();
-      } else {
-        $('#redVarieties').fadeToggle();
-      }
-    });
-  });
-
-
-
-
-
+    $('#countryVariety').fadeIn();
+  })
+  //   if (wineType === "red") {
+  //     $('#redVarieties').fadeIn();
+  //   }
+  // })
 
 
 });
+
+
+
+
+
+
+
+
+  // $('#countryVariety').click(function(e) {
+  //     countryVariety = $(e.target).val();
+  //     if(countryVariety === 'country') {
+  //       $('#countries').fadeToggle();
+  //     } else {
+  //       $('#redVarieties').fadeToggle();
+  //     }
+  //   });
+
 
 
 // $.ajax({

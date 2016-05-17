@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="css/style.css" type="text/css">
@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div class="input-field col l2 offset-l5">
-          <input id="zipcode" type="text" pattern="[0-9]{5}" length="5">
+          <input id="zipcode" type="text" pattern="[0-9]{5}" length="5" autofocus>
           <label for="zipcode">Search Zipcode</label>
           <a class="waves-effect waves-light btn" id="zipSubmit">Submit</a>
         </div>
@@ -44,7 +44,7 @@
         </div>
         <div class="col l2">
           <form action="#" id="countryVariety" style="display: block;">
-            <h5>Search by:</h5>
+            <h5>Search by</h5>
             <p>
             <input name="countryVariety" type="radio" value="country" id="country">
               <label for="country">Country</label>
@@ -118,12 +118,162 @@
         </div>
         <div class="col l2">
           <form action="#" id="redVarieties" style="display: block;">
-            <h5>Red Variety</h5>
+            <h5>Variety</h5>
             <p>
               <input name="redVarieties" type="radio" id="barbera" value="barbera">
               <label for="barbera">Barbera</label>
             </p>
+            <p>
+              <input name="redVarieties" type="radio" id="cabernetSauvignon" value="cabernet sauvignon">
+              <label for="cabernetSauvignon">Cabernet Sauvignon</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="gamay" value="gamay">
+              <label for="gamay">Gamay</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="grenache" value="grenache">
+              <label for="grenache">Grenache</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="malbec" value="malbec">
+              <label for="malbec">Malbec</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="merlot" value="merlot">
+              <label for="merlot">Merlot</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="mourvedre" value="mourvèdre">
+              <label for="mourvedre">Mourvèdre</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="nebbiolo" value="nebbiolo">
+              <label for="nebbiolo">Nebbiolo</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="neroDAvola" value="nero d'avola">
+              <label for="neroDAvola">Nero d'Avola</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="petiteSirah" value="petite sirah">
+              <label for="petiteSirah">Petite Sirah</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="pinotage" value="pinotage">
+              <label for="pinotage">Pinotage</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="pinotNoir" value="pinot noir">
+              <label for="pinotNoir">Pinot Noir</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="sangiovese" value="sangiovese">
+              <label for="sangiovese">Sangiovese</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="syrah" value="syrah">
+              <label for="syrah">Syrah</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="tannat" value="tannat">
+              <label for="tannat">Tannat</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="tempranillo" value="tempranillo">
+              <label for="tempranillo">Tempranillo</label>
+            </p>
+            <p>
+              <input name="redVarieties" type="radio" id="zinfandel" value="zinfandel">
+              <label for="zinfandel">Zinfandel</label>
+            </p>
           </form>
+        </div>
+        <div class="col l2">
+          <form action="#" id="whiteVarieties" style="display: block;">
+            <h5>Variety</h5>
+            <p>
+              <input name="whiteVarieties" type="radio" id="albarino" value="albariño">
+              <label for="albarino">Albariño</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="chardonnay" value="chardonnay">
+              <label for="chardonnay">Chardonnay</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="cheninBlanc" value="chenin blanc">
+              <label for="cheninBlanc">Chenin Blanc</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="gewurtztraminer" value="gewürtztraminer">
+              <label for="gewurtztraminer">Gewürtraminer</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="marsanne" value="marsanne">
+              <label for="marsanne">Marsanne</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="mullerThurgau" value="Müller-Thurgau">
+              <label for="mullerThurgau">Müller-Thurgau</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="muscat" value="muscat">
+              <label for="muscat">Muscat</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="pinotBlanc" value="pinot blanc">
+              <label for="pinotBlanc">Pinot Blanc</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="pinotGrigio" value="pinot grigio">
+              <label for="pinotGrigio">Pinot Grigio</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="riesling" value="riesling">
+              <label for="riesling">Riesling</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="sauvignonBlanc" value="sauvignon blanc">
+              <label for="sauvignonBlanc">Sauvignon Blanc</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="Semillon" value="sémillon">
+              <label for="Semillon">Sémillon</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="silvaner" value="silvaner">
+              <label for="silvaner">Silvaner</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="ugniBlanc" value="ugni blanc trebbiano">
+              <label for="ugniBlanc">Ugni Blanc (Trebbiano)</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="verdejo" value="verdejo">
+              <label for="verdejo">Verdejo</label>
+            </p>
+            <p>
+              <input name="whiteVarieties" type="radio" id="viognier" value="viognier">
+              <label for="viognier">Viognier</label>
+            </p>
+          </form>
+
+        </div>
+        <div class="col l2">
+          <form action="#" id="maxPrice" style="display: block;">
+            <h5>Max Price USD</h5>
+            <p class="range-field">
+              <input type="range" id="max" min="18" max="150"/>
+            </p>
+            <p>or</p>
+            <p>
+              <input type="radio" id="maxNone"/>
+              <label for="maxNone">I'm feeling spendy!</label>
+            </p>
+          </form>
+        </div>
+        <div class="col l1">
+            <a class="valign btn-floating btn-large waves-effect waves-light amber darken-1"><i class="material-icons">done</i></a>
         </div>
       </div>
     </div>
