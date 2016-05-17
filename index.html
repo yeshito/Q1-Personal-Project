@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="input-field col l2 offset-l5">
+          <input id="zipcode" type="text" pattern="[0-9]{5}" length="5">
+          <label for="zipcode">Search Zipcode</label>
+          <a class="waves-effect waves-light btn" id="zipSubmit">Submit</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col l1">
+          <form action="#" id="wineType" style="display: block;">
+            <h5>Wine Type</h5>
+            <p>
+              <input name="type" type="radio" id="red" value="red">
+              <label for="red">Red</label>
+            </p>
+            <p>
+              <input name="type" type="radio" id="white" value="white">
+              <label for="white">White</label>
+            </p>
+            <p>
+              <input name="type" type="radio" id="rose" value="rose">
+              <label for="rose">Rose</label>
+            </p>
+            <p>
+              <input name="type" type="radio" id="sparkling" value="sparkling">
+              <label for="sparkling">Sparkling</label>
+            </p>
+          </form>
+        </div>
+        <div class="col l2">
+          <form action="#" id="countryVariety" style="display: block;">
+            <h5>Search by:</h5>
+            <p>
+            <input name="countryVariety" type="radio" value="country" id="country">
+              <label for="country">Country</label>
+            </p>
+            <p>
+              <input name="countryVariety" type="radio" value="variety" id="variety">
+              <label for="variety">Grape Variety</label>
+            </p>
+          </form>
+        </div>
+        <div class="col l2">
+          <form action="#" id="countries" style="display: block;">
+            <h5>Country</h5>
+            <p>
+              <input name="countries" type="radio" id="argentina" value="argentina">
+              <label for="argentina">Argentina</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="australia" value="australia">
+              <label for="australia">Australia</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="austria" value="austria">
+              <label for="austria">Austria</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="brazil" value="brazil">
+              <label for="brazil">Brazil</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="chile" value="chile">
+              <label for="chile">Chile</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="france" value="france">
+              <label for="france">France</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="germany" value="germany">
+              <label for="germany">Germany</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="hungary" value="hungary">
+              <label for="hungary">Hungary</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="italy" value="italy">
+              <label for="italy">Italy</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="newZealand" value="new zealand">
+              <label for="newZealand">New Zealand</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="portugal" value="portugal">
+              <label for="portugal">Portugal</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="southAfrica" value="south africa">
+              <label for="southAfrica">South Africa</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="spain" value="spain">
+              <label for="spain">Spain</label>
+            </p>
+            <p>
+              <input name="countries" type="radio" id="usa" value="usa">
+              <label for="usa">USA</label>
+            </p>
+          </form>
+        </div>
+        <div class="col l2">
+          <form action="#" id="redVarieties" style="display: block;">
+            <h5>Red Variety</h5>
+            <p>
+              <input name="redVarieties" type="radio" id="barbera" value="barbera">
+              <label for="barbera">Barbera</label>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
