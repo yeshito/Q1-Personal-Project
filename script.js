@@ -16,7 +16,7 @@ var wineArguments = {
 }
 
 // since this parameter is not actually used for URL request
-var countryVariety = '',
+var countryVariety = ''
 
 
   $('#zipSubmit').mouseup(function() {
@@ -28,9 +28,12 @@ var countryVariety = '',
   $('#wineType label').mouseup(function(e) {
     wineArguments.wineType = $(e.target).attr('for');
     $('#countryVariety').hide();
+    countryVariety = ''
     $('#countries').hide();
+    wineArguments.country = ''
     $('#redVarieties').hide();
     $('#whiteVarieties').hide();
+    wineArguments.variety = ''
     hideFinalSelectors();
     console.log(wineArguments.wineType);
 
@@ -107,30 +110,45 @@ var countryVariety = '',
 
       $('#maxPrice label').mouseup(function(e) {
         wineArguments.maxPrice = $(e.target).attr('for')
-        if '0' make ""
         console.log(wineArguments.maxPrice)
         $('#completeButton').fadeIn();
       });
 
       $('#completeButton').mouseup(function() {
         var urlInput = '';
+
         for(key in wineArguments) {
-          if (wineArguments[key] !== '' || wineArguments[key] !== '0') {
-            if(key === '')
+          if (wineArguments[key] && wineArguments[key] !== '0') {
+            if(key === 'wineType') {
+              if (wineArguments[key] === 'sparkling' || wineArguments[key] === 'dessert') {
+                urlInput += `&t=${wineArguments[key]}`;
+              } else {
+                urlInput += `&t=wine&color=${wineArguments[key]}`;
+              }
+            } else if (key === 'zipcode') {
+              urlInput += `&z=${wineArguments[key]}`;
+            } else if (key === 'maxPrice') {
+              urlInput += `&xp=${wineArguments[key]}`
+            } else {
+              urlInput += `&q=${wineArguments[key]}`
+            }
           }
         }
+
+        var url = `http://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&n=100&c=US&lang=en&s=sr${urlInput}`
+        console.log(url);
         // zipcode = &z='';
-        //  wineType = &t='sparkling', &color='red, white, rose'
+        //  wineType = &t='sparkling, dessert', &color='red, white, rose'
         //  variety = ''; put straight into beginning
         //  country = ''; put straight into beginning
         //  maxPrice = ''; if false do not add else &xp=''
 
 
         $.ajax({
-          url: `http://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&q=${urlInput}&n=100&c=US&lang=en`,
+          url: `http://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit${urlInput}&n=100&c=US&lang=en&s=sr`,
           method: "GET",
           success: function(data) {
-            alert(JSON.stringify(data));
+            JSON.stringify(data));
           },
           error: function(errorObject, textStatus) {
               console.log(errorObject);
