@@ -7,29 +7,34 @@ $( document ).ready(function() {
   $('#whiteVarieties').hide();
   hideFinalSelectors();
 
-  var zipcode = '';
-  var wineType = '';
-  var countryVariety = '';
-  var variety = '';
-  var country = '';
-  var maxPrice = '';
+var wineArguments = {
+  zipcode: '',
+  wineType: '',
+  variety: '',
+  country: '',
+  maxPrice: ''
+}
+
+// since this parameter is not actually used for URL request
+var countryVariety = '',
+
 
   $('#zipSubmit').mouseup(function() {
-    zipcode = $('#zipcode').val();
-    console.log(zipcode);
+    wineArguments.zipcode = $('#zipcode').val();
+    console.log(wineArguments.zipcode);
     $('#wineType').fadeIn();
   });
 
   $('#wineType label').mouseup(function(e) {
-    wineType = $(e.target).attr('for');
+    wineArguments.wineType = $(e.target).attr('for');
     $('#countryVariety').hide();
     $('#countries').hide();
     $('#redVarieties').hide();
     $('#whiteVarieties').hide();
     hideFinalSelectors();
-    console.log(wineType);
+    console.log(wineArguments.wineType);
 
-    if(wineType === 'red' || wineType === 'white') {
+    if(wineArguments.wineType === 'red' || wineArguments.wineType === 'white') {
       $('#countryVariety').fadeIn();
 
       $('#countryVariety label').mouseup(function(e) {
@@ -40,7 +45,7 @@ $( document ).ready(function() {
         countryVariety = $(e.target).attr('for');
         console.log(countryVariety);
 
-          if(countryVariety === 'variety' && wineType === 'red') {
+          if(countryVariety === 'variety' && wineArguments.wineType === 'red') {
             $('#redVarieties').fadeIn();
             $('#countries').hide();
             $('#whiteVarieties').hide();
@@ -50,20 +55,20 @@ $( document ).ready(function() {
               $('#countries').hide();
               $('#whiteVarieties').hide();
               hideFinalSelectors();
-              variety = $(e.target).attr('for')
-              console.log(variety);
+              wineArguments.variety = $(e.target).attr('for')
+              console.log(wineArguments.variety);
               priceSubmitForm();
             });
 
-          } else if (countryVariety === 'variety' && wineType === 'white'){
+          } else if (countryVariety === 'variety' && wineArguments.wineType === 'white'){
             $('#whiteVarieties').fadeIn();
             $('#redVarieties').hide();
             $('#countries').hide();
             hideFinalSelectors();
 
             $('#whiteVarieties label').mouseup(function(e) {
-              variety = $(e.target).attr('for')
-              console.log(variety);
+              wineArguments.variety = $(e.target).attr('for')
+              console.log(wineArguments.variety);
               priceSubmitForm();
             });
           } else {
@@ -90,8 +95,8 @@ $( document ).ready(function() {
 
         $('#countries label').mouseup(function(e) {
           $('#maxPrice').hide();
-          country = $(e.target).attr('for')
-          console.log(country);
+          wineArguments.country = $(e.target).attr('for')
+          console.log(wineArguments.country);
           priceSubmitForm();
         });
       }
@@ -101,33 +106,38 @@ $( document ).ready(function() {
       $('#completeButton').hide();
 
       $('#maxPrice label').mouseup(function(e) {
-        maxPrice = $(e.target).attr('for')
-        console.log(maxPrice)
+        wineArguments.maxPrice = $(e.target).attr('for')
+        if '0' make ""
+        console.log(wineArguments.maxPrice)
         $('#completeButton').fadeIn();
       });
 
-      $('#completeButton').mouseup(function() {});
+      $('#completeButton').mouseup(function() {
+        var urlInput = '';
+        for(key in wineArguments) {
+          if (wineArguments[key] !== '' || wineArguments[key] !== '0') {
+            if(key === '')
+          }
+        }
+        // zipcode = &z='';
+        //  wineType = &t='sparkling', &color='red, white, rose'
+        //  variety = ''; put straight into beginning
+        //  country = ''; put straight into beginning
+        //  maxPrice = ''; if false do not add else &xp=''
+
+
+        $.ajax({
+          url: `http://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&q=${urlInput}&n=100&c=US&lang=en`,
+          method: "GET",
+          success: function(data) {
+            alert(JSON.stringify(data));
+          },
+          error: function(errorObject, textStatus) {
+              console.log(errorObject);
+              console.log(textStatus);
+          }
+        });
+
+      });
       }
 });
-
-
-
-
-
-
-
-
-
-
-
-// $.ajax({
-//   url: 'https://www.omdbapixxxhfksu.com/?t=Frozen&y=&plot=short&r=json',
-//   method: "GET",
-//   success: function(data) {
-//     alert(JSON.stringify(data));
-//   },
-//   error: function(errorObject, textStatus) {
-//       console.log(errorObject);
-//       console.log(textStatus);
-//   }
-// });
