@@ -116,6 +116,7 @@ var countryVariety = ''
 
       $('#completeButton').mouseup(function() {
         var urlInput = '';
+        var wineResultsArray = []
 
         for(key in wineArguments) {
           if (wineArguments[key] && wineArguments[key] !== '0') {
@@ -135,20 +136,44 @@ var countryVariety = ''
           }
         }
 
-        var url = `http://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&n=100&c=US&lang=en&s=sr${urlInput}`
-        console.log(url);
+        var finalURLRequest = `http://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&n=100&c=US&lang=en&s=sr${urlInput}`
         // zipcode = &z='';
         //  wineType = &t='sparkling, dessert', &color='red, white, rose'
         //  variety = ''; put straight into beginning
         //  country = ''; put straight into beginning
         //  maxPrice = ''; if false do not add else &xp=''
-
-
         $.ajax({
-          url: `http://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit${urlInput}&n=100&c=US&lang=en&s=sr`,
+          url: finalURLRequest,
           method: "GET",
           success: function(data) {
-            JSON.stringify(data));
+            // console.log(data, "SHOW ME THE DATA")
+            console.log(JSON.parse(data).meta.results);
+            data = JSON.parse(data)
+            // var numReturnedWines = JSON.parse(data).meta.results;
+            var numReturnedWines = data.meta.results;
+
+
+            var selectThreeWines = function (winePool) {
+              var previousChoices = [];
+
+              do {
+                var currentWineChoice = Math.floor(Math.random() * winePool)
+                if (previousChoices.indexOf(currentWineChoice) === -1) {
+                  wineResultsArray.push(data.wines[currentWineChoice]);
+                  previousChoices.push(currentWineChoice);
+                }
+              } while (wineResultsArray.length < 3);
+
+            } // end function;
+
+            if (numReturnedWines < 4) {
+              wineResultsArray = data.wines;
+            } else if (numReturnedWines <= 40) {
+              selectThreeWines(numReturnedWines);
+            } else {
+              selectThreeWines(40)
+            }
+            console.log(wineResultsArray);
           },
           error: function(errorObject, textStatus) {
               console.log(errorObject);
