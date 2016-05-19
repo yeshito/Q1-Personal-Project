@@ -114,10 +114,13 @@ var countryVariety = ''
         $('#completeButton').fadeIn();
       });
 
-      $('#completeButton').mouseup(function() {
-        var urlInput = '';
-        var wineResultsArray = []
 
+
+      $('#completeButton').mouseup(function() {
+
+        var urlInput = '';
+
+        // Takes form data and converts to URL
         for(key in wineArguments) {
           if (wineArguments[key] && wineArguments[key] !== '0') {
             if(key === 'wineType') {
@@ -137,41 +140,38 @@ var countryVariety = ''
         }
 
         var finalURLRequest = `http://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&n=100&c=US&lang=en&s=sr${urlInput}`
-        // zipcode = &z='';
-        //  wineType = &t='sparkling, dessert', &color='red, white, rose'
-        //  variety = ''; put straight into beginning
-        //  country = ''; put straight into beginning
-        //  maxPrice = ''; if false do not add else &xp=''
+        var wineResultsArray = []
+
         $.ajax({
           url: finalURLRequest,
           method: "GET",
           success: function(data) {
-            // console.log(data, "SHOW ME THE DATA")
-            console.log(JSON.parse(data).meta.results);
+
+
             data = JSON.parse(data)
-            // var numReturnedWines = JSON.parse(data).meta.results;
-            var numReturnedWines = data.meta.results;
 
+            var numReturnedWines = data.meta.returned;
+            console.log('returned wines ' + numReturnedWines);
 
-            var selectThreeWines = function (winePool) {
+            var selectThreeWines = function (winesAmount) {
               var previousChoices = [];
 
               do {
-                var currentWineChoice = Math.floor(Math.random() * winePool)
+                var currentWineChoice = Math.floor(Math.random() * winesAmount)
                 if (previousChoices.indexOf(currentWineChoice) === -1) {
                   wineResultsArray.push(data.wines[currentWineChoice]);
                   previousChoices.push(currentWineChoice);
                 }
               } while (wineResultsArray.length < 3);
-
+              console.log(previousChoices);
             } // end function;
 
             if (numReturnedWines < 4) {
               wineResultsArray = data.wines;
-            } else if (numReturnedWines <= 40) {
+            } else if (numReturnedWines <= 30) {
               selectThreeWines(numReturnedWines);
             } else {
-              selectThreeWines(40)
+              selectThreeWines(30)
             }
             console.log(wineResultsArray);
           },
@@ -181,6 +181,24 @@ var countryVariety = ''
           }
         });
 
+        var createWineCard = function (wineObject) {
+
+
+          // `<div class="card col l4" id=${this.code}>
+          //   <div class="card-image waves-effect waves-block waves-light">
+          //     <img class="activator" src=${this.image}>
+          //   </div>
+          //   <div class="card-content">
+          //     <span class="card-title activator grey-text text-darken-4">${this.name}<i class="material-icons right">more_vert</i></span>
+                // <p class="flow-text"></p>
+          //     <p><a href="#">${this.link}</a></p>
+          //   </div>
+          //   <div class="card-reveal">
+          //     <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+          //     <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          //   </div>
+          // </div>`
+        }
       });
       }
 });

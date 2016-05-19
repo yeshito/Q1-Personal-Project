@@ -1,1 +1,76 @@
-  
+.card{
+  box-shadow: none;
+}
+.card-content {
+  box-shadow: none;
+  background-color:#E9ECF5;
+}
+.bottleneck, .bottlebody, .ridge {
+	background-color:#A3C3D9;
+}
+.cap {
+	height: 2em;
+	width: 140px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	background-color: #333;
+	margin: 0 auto;
+}
+.ridge {
+	height: 1em;
+	width: 140px;
+	border-radius: 20px;
+	margin: 5px auto;
+}
+.bottle {
+	position:relative;
+	float:left;
+	/* 	margin-right:2em; */
+	margin: 1em auto 0 40%;
+	width:300px;
+}
+.ribbon {
+	width:0px;
+	height:0px;
+	margin:0 auto;
+	border:60px solid rgba(0,0,0,.3);
+	border-bottom-color:transparent;
+	position:absolute;
+}
+.bottleneck {
+	height:12em;
+	width:120px;
+	margin:0 auto;
+}
+.bottlebody {
+	width:300px;
+	height:42em;
+	margin-top: -2em;
+  padding-top: 40%;
+	padding-bottom:3em;
+	border-radius:150px;
+	border-bottom-right-radius:20px;
+	border-bottom-left-radius:20px;
+	position:relative;
+}
+.bottlelabel {
+	border-radius: 25px;
+	background: #333;
+	position: absolute;
+	height: 330px;
+	top: 190px;
+	width: 70%;
+	left: 15%;
+	font-size: 48px;
+	font-family: Baskerville;
+	font-style: italic;
+	background-size:contain;
+	overflow: hidden;
+	padding: 20px 0 0 0;
+	border-width: 3px 0;
+	font-family: 'Leckerli One', cursive;
+	line-height: 280px;
+	color: white;
+	letter-spacing: 6px;
+	text-shadow: 1px 1px 32px black;
+}
