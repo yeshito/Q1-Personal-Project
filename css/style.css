@@ -1,9 +1,6 @@
 body {
   background-image: url('images/green_dust_scratch/green_dust_scratch_@2X.png');
 }
-p {
-  overflow: scroll;
-}
 .card-content {
   background-color:#E9ECF5;
 }
