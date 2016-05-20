@@ -60,7 +60,7 @@ var countryVariety = ''
               hideFinalSelectors();
               wineArguments.variety = $(e.target).attr('for')
               console.log(wineArguments.variety);
-              priceSubmitForm();
+              winePrice();
             });
 
           } else if (countryVariety === 'variety' && wineArguments.wineType === 'white'){
@@ -72,7 +72,7 @@ var countryVariety = ''
             $('#whiteVarieties label').mouseup(function(e) {
               wineArguments.variety = $(e.target).attr('for')
               console.log(wineArguments.variety);
-              priceSubmitForm();
+              winePrice();
             });
           } else {
             countrySelection();
@@ -100,29 +100,63 @@ var countryVariety = ''
           $('#maxPrice').hide();
           wineArguments.country = $(e.target).attr('for')
           console.log(wineArguments.country);
-          priceSubmitForm();
+          winePrice();
         });
       }
 
-      function priceSubmitForm () {
+      function winePrice () {
       $('#maxPrice').fadeIn();
       $('#completeButton').hide();
 
-      $('#maxPrice label').mouseup(function(e) {
-        wineArguments.maxPrice = $(e.target).attr('for')
-        console.log(wineArguments.maxPrice)
-        $('#completeButton').fadeIn();
-      });
+        $('#maxPrice label').mouseup(function(e) {
+          wineArguments.maxPrice = $(e.target).attr('for')
+          console.log(wineArguments.maxPrice)
+          $('#completeButton').fadeIn();
+        });
+      };
 
 
 
       $('#completeButton').mouseup(function() {
+        $('#wineType').hide();
+        $('#countryVariety').hide();
+        $('#countries').hide();
+        $('#redVarieties').hide();
+        $('#whiteVarieties').hide();
+        hideFinalSelectors()
+
+        appendWineCrumbsBar();
+
+        function appendWineCrumbsBar () {
+          var middleWineCrumb = ''
+          if (wineArguments.variety) {
+            middleWineCrumb = wineArguments.variety;
+          } else {
+            middleWineCrumb = wineArguments.country;
+          };
+
+          var wineCrumbsBar = $(`
+            <div class="row">
+              <nav>
+                <div class="nav-wrapper">
+                  <div class="col s6 offset-s3">
+                    <a href="#!" class="breadcrumb">${wineArguments.wineType}</a>
+                    <a href="#!" class="breadcrumb">${middleWineCrumb}</a>
+                    <a href="#!" class="breadcrumb">${wineArguments.maxPrice}</a>
+                  </div>
+                </div>
+              </nav>
+            </div>`)
+
+          $('.container').append(wineCrumbsBar);
+        }
+        // end appendWineCrumbsBar Function
 
         var urlInput = '';
 
         // Takes form data and converts to URL
         for(key in wineArguments) {
-          if (wineArguments[key] && wineArguments[key] !== '0') {
+          if (wineArguments[key] && wineArguments[key] !== 'Make it rain!') {
             if(key === 'wineType') {
               if (wineArguments[key] === 'sparkling' || wineArguments[key] === 'dessert') {
                 urlInput += `&t=${wineArguments[key]}`;
@@ -142,18 +176,27 @@ var countryVariety = ''
         var finalURLRequest = `http://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&n=100&c=US&lang=en&s=sr${urlInput}`
         var wineResultsArray = []
 
+        // initial ajax request
         $.ajax({
           url: finalURLRequest,
           method: "GET",
           success: function(data) {
-
-
             data = JSON.parse(data)
-
             var numReturnedWines = data.meta.returned;
             console.log('returned wines ' + numReturnedWines);
 
-            var selectThreeWines = function (winesAmount) {
+            if (numReturnedWines < 4) {
+              wineResultsArray = data.wines;
+            } else if (numReturnedWines <= 30) {
+              selectThreeWines(numReturnedWines);
+            } else {
+              selectThreeWines(30)
+            }
+            console.log(wineResultsArray);
+
+            createWineCardRow(wineResultsArray);
+
+            function selectThreeWines (winesAmount) {
               var previousChoices = [];
 
               do {
@@ -164,41 +207,79 @@ var countryVariety = ''
                 }
               } while (wineResultsArray.length < 3);
               console.log(previousChoices);
-            } // end function;
-
-            if (numReturnedWines < 4) {
-              wineResultsArray = data.wines;
-            } else if (numReturnedWines <= 30) {
-              selectThreeWines(numReturnedWines);
-            } else {
-              selectThreeWines(30)
             }
-            console.log(wineResultsArray);
           },
           error: function(errorObject, textStatus) {
               console.log(errorObject);
               console.log(textStatus);
           }
         });
-
-        var createWineCard = function (wineObject) {
-
-
-          // `<div class="card col l4" id=${this.code}>
-          //   <div class="card-image waves-effect waves-block waves-light">
-          //     <img class="activator" src=${this.image}>
-          //   </div>
-          //   <div class="card-content">
-          //     <span class="card-title activator grey-text text-darken-4">${this.name}<i class="material-icons right">more_vert</i></span>
-                // <p class="flow-text"></p>
-          //     <p><a href="#">${this.link}</a></p>
-          //   </div>
-          //   <div class="card-reveal">
-          //     <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-          //     <p>Here is some more information about this product that is only revealed once clicked on.</p>
-          //   </div>
-          // </div>`
-        }
       });
-      }
+  // functions used to create wine row
+
+    function createWineCardRow (wineArray)  {
+      var cardRow = $('<div class="row">')
+      $('.container').append(cardRow);
+      wineArray.forEach(function(wineElement) {
+        var cardDiv = createBottle(wineElement);
+        cardRow.append(cardDiv);
+      });
+      //$('.container').append('</div>');
+      populateMoreData();
+    }
+
+    function createBottle(wineObject) {
+      var wineSearchName = wineObject.name.replace(/ /g, '+');
+
+      return $(`<div class="col l4">
+        <div class="card hoverable">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img src=${wineObject.image}>
+        </div>
+         <div class="card-content paper1">
+               <span class="card-title grey-text text-darken-4">${wineObject.name}</span>
+                 <p>Region: ${wineObject.region}</p>
+                 <p>Winery: ${wineObject.winery}</p>
+                 <p>Varietal: ${wineObject.varietal}</p>
+                 <p>Type: ${wineObject.type}</p>
+                 <p>Price: $${wineObject.price}</p>
+                 <p>Snoothrank: ${wineObject.snoothrank}</p>
+               <div class="card-action">
+                 <a target="_blank" href="http://www.wine-searcher.com/find/${wineSearchName}/1/usa-${wineArguments.zipcode}-20?Xlist_format=&Xbottle_size=all&Xprice_set=CUR&Xprice_min=&Xprice_max=&Xshow_favourite=">Buy</a>
+                 <a class="activator" id=${wineObject.code}>More</a>
+               </div>
+         </div>
+         <div class="card-reveal paper2">
+           <span class="card-title grey-text text-darken-4">${wineObject.name}<i class="material-icons right">close</i></span>
+           <a target="_blank" href="http://www.wine-searcher.com/find/${wineSearchName}/1/usa-${wineArguments.zipcode}-20?Xlist_format=&Xbottle_size=all&Xprice_set=CUR&Xprice_min=&Xprice_max=&Xshow_favourite=">Buy</a>
+           <p></p>
+         </div>
+        </div>
+        </div>`);
+    };
+
+
+    function populateMoreData () {
+
+      $('.activator').one('click', function(e) {
+        var bottleID = this.id;
+        console.log(bottleID);
+        var bottleURL = `http://api.snooth.com/wine/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&food=1&lang=en&c=US&z=${wineArguments.zipcode}&id=${bottleID}`
+        console.log(bottleURL)
+
+        $.ajax({
+          url: bottleURL,
+          method: "GET",
+          success: function(data) {
+            data = JSON.parse(data)
+            console.log(data);
+          },
+          error: function(errorObject, textStatus) {
+              console.log(errorObject);
+              console.log(textStatus);
+          }
+        })
+      });
+    };
+
 });

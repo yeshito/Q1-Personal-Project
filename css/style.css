@@ -1,76 +1,69 @@
-.card{
-  box-shadow: none;
+body {
+  background-image: url('images/green_dust_scratch/green_dust_scratch_@2X.png');
+}
+p {
+  overflow: scroll;
 }
 .card-content {
-  box-shadow: none;
   background-color:#E9ECF5;
 }
-.bottleneck, .bottlebody, .ridge {
+[for] {
+  color: #4A7B9D;
+}
+nav {
+  margin-bottom: 4%;
+}
+.btn {
+  color: #54577C;
+}
+/*bottle div css*/
+/*.bottleneck, .bottlebody, .ridge {
 	background-color:#A3C3D9;
 }
+.top {
+  margin: 0 29% 0 auto;
+}
 .cap {
-	height: 2em;
-	width: 140px;
-	border-top-left-radius: 20px;
-	border-top-right-radius: 20px;
+	height: 1em;
+	width: 70px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 	background-color: #333;
 	margin: 0 auto;
 }
 .ridge {
-	height: 1em;
-	width: 140px;
-	border-radius: 20px;
-	margin: 5px auto;
+	height: .5em;
+	width: 70px;
+	border-radius: 10px;
+	margin: 2.5px auto;
 }
 .bottle {
-	position:relative;
+	position:relative;*/
 	float:left;
-	/* 	margin-right:2em; */
-	margin: 1em auto 0 40%;
-	width:300px;
+	margin-right:2em;
+	margin: 0 auto;
 }
 .ribbon {
 	width:0px;
 	height:0px;
 	margin:0 auto;
-	border:60px solid rgba(0,0,0,.3);
+	border:30px solid rgba(0,0,0,.3);
 	border-bottom-color:transparent;
 	position:absolute;
 }
 .bottleneck {
-	height:12em;
-	width:120px;
+	height:6em;
+	width:60px;
 	margin:0 auto;
 }
 .bottlebody {
-	width:300px;
-	height:42em;
+	width:200px;
+	height:21em;
 	margin-top: -2em;
-  padding-top: 40%;
+  padding-top: 25%;
 	padding-bottom:3em;
 	border-radius:150px;
 	border-bottom-right-radius:20px;
 	border-bottom-left-radius:20px;
 	position:relative;
-}
-.bottlelabel {
-	border-radius: 25px;
-	background: #333;
-	position: absolute;
-	height: 330px;
-	top: 190px;
-	width: 70%;
-	left: 15%;
-	font-size: 48px;
-	font-family: Baskerville;
-	font-style: italic;
-	background-size:contain;
-	overflow: hidden;
-	padding: 20px 0 0 0;
-	border-width: 3px 0;
-	font-family: 'Leckerli One', cursive;
-	line-height: 280px;
-	color: white;
-	letter-spacing: 6px;
-	text-shadow: 1px 1px 32px black;
-}
+}*/

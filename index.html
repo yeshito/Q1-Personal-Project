@@ -13,13 +13,17 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="input-field col l2 offset-l5">
-          <input id="zipcode" type="text" pattern="[0-9]{5}" length="5" autofocus>
-          <label for="zipcode">Search Zipcode</label>
-          <a class="waves-effect waves-light btn" id="zipSubmit">Submit</a>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Discover a wine you love sold in your zipcode:</a>
+            <div id="nav-mobile" class="right hide-on-med-and-down">
+              <div class="input-field">
+                <input id="zipcode" type="text" pattern="[0-9]{5}" length="5" autofocus>
+              </div>
+              <a class="waves-effect waves-light btn" id="zipSubmit">Discover!</a>
+            </div>
         </div>
-      </div>
+      </nav>
       <div class="row">
         <div class="col l2" id="wineType">
             <h5>Wine Type</h5>
@@ -48,7 +52,7 @@
           <h5>Search by</h5>
           <p>
           <input name="countryVariety" type="radio" value="country" id="country">
-            <label for="country">Country</label>
+            <label for="country">Country of Origin</label>
           </p>
           <p>
             <input name="countryVariety" type="radio" value="variety" id="variety">
@@ -70,10 +74,6 @@
             <label for="austria">Austria</label>
           </p>
           <p>
-            <input name="countries" type="radio" id="brazil" value="brazil">
-            <label for="brazil">Brazil</label>
-          </p>
-          <p>
             <input name="countries" type="radio" id="chile" value="chile">
             <label for="chile">Chile</label>
           </p>
@@ -84,10 +84,6 @@
           <p>
             <input name="countries" type="radio" id="germany" value="germany">
             <label for="germany">Germany</label>
-          </p>
-          <p>
-            <input name="countries" type="radio" id="hungary" value="hungary">
-            <label for="hungary">Hungary</label>
           </p>
           <p>
             <input name="countries" type="radio" id="italy" value="italy">
@@ -256,7 +252,7 @@
             <h5>Max Price</h5>
             <p>
               <input name="maxPrice" type="radio" id="0" value="none">
-              <label for="0">The Sky is the limit!</label>
+              <label for="Make it rain!">The Sky is the limit!</label>
             </p>
             <p>
               <input name="maxPrice" type="radio" id="100" value="100">
@@ -279,43 +275,64 @@
             <a class="valign btn-floating btn-large waves-effect waves-light amber darken-1"><i class="material-icons">done</i></a>
         </div>
       </div>
-      <div class="row">
-        <div class="bottle">
-          <div class="top">
-            <div class="cap"></div>
-            <div class="ridge"></div>
-            <div class="ridge"></div>
-            <div class="ridge"></div>
-            <div class="bottleneck">
-              <div class="ribbon"></div>
-              <div class="highlight1"></div>
-            </div>
+      <!-- <div class="row"> -->
+        <!-- <div class="card col l4 card-panel hoverable">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img src="http:\/\/ei.isnooth.com\/multimedia\/4\/f\/e\/image_3922569_square.jpeg">
           </div>
-          <div class="bottlebody">
-            <span class="card-title grey-text text-darken-4 activator">Badia a Coltibuono Cetamura Chianti</span>
-            <div class="card" id="badia-a-coltibuono-cetamura-chianti-2012-1">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator z-depth-1" src="http:\/\/ei.isnooth.com\/multimedia\/4\/f\/e\/image_3922569_square.jpeg">
-              </div>
-               <div class="card-content paper1 activator">
-                     <p>Region: Italy > Tuscany > Chianti</p>
-                     <p>Winery: Cetamura</p>
-                     <p>Varietal: Sangiovese</p>
-                     <p>Price: $10.99</p>
-                     <p>Snoothrank: 4.5/5</p>
-               </div>
-               <div class="card-reveal paper2">
-                 <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                 <p>Here is some more information about this product that is only revealed once clicked on.</p>
-               </div>
-            </div>
-          </div>
-        </div>
-
-
-          </div>
-        </div>
+           <div class="card-content paper1">
+                 <span class="card-title grey-text text-darken-4">Badia a Coltibuono Cetamura Chianti</span>
+                 <p>Region: Italy > Tuscany > Chianti</p>
+                 <p>Winery: Cetamura</p>
+                 <p>Varietal: Sangiovese</p>
+                 <p>Price: $10.99</p>
+                 <p>Snoothrank: 4.5/5</p>
+                 <div class="card-action">
+                   <a target="_blank" href="http://www.wine-searcher.com/find/badia+a+coltibuono+cetamura+chianti/1/usa-94710-20?Xlist_format=&Xbottle_size=all&Xprice_set=CUR&Xprice_min=&Xprice_max=&Xshow_favourite=">Buy Now</a>
+                   <a class="activator" id="badia-a-coltibuono-cetamura-chianti-2012-1">More Info</a>
+                 </div>
+           </div>
+           <div class="card-reveal paper2">
+             <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+             <a target="_blank" href="http://www.wine-searcher.com/find/badia+a+coltibuono+cetamura+chianti/1/usa-94710-20?Xlist_format=&Xbottle_size=all&Xprice_set=CUR&Xprice_min=&Xprice_max=&Xshow_favourite=">Buy Now</a>
+             <p></p>
+           </div>
+          </div> -->
+        <!-- </div> -->
       </div>
     </div>
   </body>
 </html>
+  <!-- bottle div for returned wines -->
+  <!-- <div class="row">
+    <div class="bottle col l4" id="badia-a-coltibuono-cetamura-chianti-2012-1">
+      <div class="top">
+        <div class="cap"></div>
+        <div class="ridge"></div>
+        <div class="ridge"></div>
+        <div class="ridge"></div>
+        <div class="bottleneck">
+          <div class="ribbon"></div>
+          <div class="highlight1"></div>
+        </div>
+      </div>
+      <div class="bottlebody">
+        <a class="btn-floating btn-large waves-effect waves-light green lighten-2" target="_blank" href="http://www.wine-searcher.com/find/badia+a+coltibuono+cetamura+chianti/1/usa-94710-20?Xlist_format=&Xbottle_size=all&Xprice_set=CUR&Xprice_min=&Xprice_max=&Xshow_favourite=">Buy!</a>
+        <p class='bottleTitle'>Badia a Coltibuono Cetamura Chianti</p>
+        <div class="card" >
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator z-depth-1" src="http:\/\/ei.isnooth.com\/multimedia\/4\/f\/e\/image_3922569_square.jpeg">
+          </div>
+           <div class="card-content paper1 activator">
+                 <p>Region: Italy > Tuscany > Chianti</p>
+                 <p>Winery: Cetamura</p>
+                 <p>Varietal: Sangiovese</p>
+                 <p>Price: $10.99</p>
+                 <p>Snoothrank: 4.5/5</p>
+           </div>
+           <div class="card-reveal paper2">
+             <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+             <p></p>
+           </div>
+        </div>
+      </div>
