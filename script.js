@@ -137,12 +137,12 @@ var countryVariety = ''
 
           var wineCrumbsBar = $(`
             <div class="row">
-              <nav>
+              <nav class="col s6 offset-s3">
                 <div class="nav-wrapper">
-                  <div class="col s6 offset-s3">
+                  <div>
                     <a href="#!" class="breadcrumb">${wineArguments.wineType}</a>
                     <a href="#!" class="breadcrumb">${middleWineCrumb}</a>
-                    <a href="#!" class="breadcrumb">${wineArguments.maxPrice}</a>
+                    <a href="#!" class="breadcrumb">$${wineArguments.maxPrice}</a>
                   </div>
                 </div>
               </nav>
