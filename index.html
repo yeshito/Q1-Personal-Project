@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
   <head>
     <title></title>
     <meta charset="utf-8">
-    <script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
-    <!-- Compiled and minified CSS -->
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.js"></script>
@@ -13,17 +12,31 @@
   </head>
   <body>
     <div class="container">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Discover a wine you love sold in your zipcode:</a>
-            <div id="nav-mobile" class="right hide-on-med-and-down">
-              <div class="input-field">
-                <input id="zipcode" type="text" pattern="[0-9]{5}" length="5" autofocus>
-              </div>
-              <a class="waves-effect waves-light btn" id="zipSubmit">Discover!</a>
-            </div>
+      <div class="row" id='title'>
+        <div class="col l8">
+          <h2>Find a wine you love<h2>
         </div>
-      </nav>
+          <div class="col l4">
+            <h5>Start with your zipcode</h5>
+            <div class="input-field">
+              <input id="zipcode" type="text" length="5" autofocus>
+            </div>
+            <a class="waves-effect waves-purple btn" id="zipSubmit">Discover!</a>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col l2 offset-l10" id="zip">
+
+        </div>
+      </div>
+      <div id='noResults' class="row">
+        <div class='col l5 offset-l3'>
+          <h4>Your search returned no results. Please try again</h4>
+        </div>
+        <div class='col l1'>
+          <i class="large material-icons">call_made</i>
+        </div>
+      </div>
       <div class="row">
         <div class="col l2" id="wineType">
             <h5>Wine Type</h5>
@@ -235,8 +248,8 @@
         <div class="col l2" id="maxPrice">
             <h5>Max Price</h5>
             <p>
-              <input name="maxPrice" type="radio" id="Make it rain!" value="none">
-              <label for="Make it rain!">The Sky is the limit!</label>
+              <input name="maxPrice" type="radio" id="The sky is the limit!" value="none">
+              <label for="The sky is the limit!">The sky is the limit!</label>
             </p>
             <p>
               <input name="maxPrice" type="radio" id="100" value="100">
@@ -259,64 +272,6 @@
             <a class="valign btn-floating btn-large waves-effect waves-light amber darken-1"><i class="material-icons">done</i></a>
         </div>
       </div>
-      <!-- <div class="row"> -->
-        <!-- <div class="card col l4 card-panel hoverable">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img src="http:\/\/ei.isnooth.com\/multimedia\/4\/f\/e\/image_3922569_square.jpeg">
-          </div>
-           <div class="card-content paper1">
-                 <span class="card-title grey-text text-darken-4">Badia a Coltibuono Cetamura Chianti</span>
-                 <p>Region: Italy > Tuscany > Chianti</p>
-                 <p>Winery: Cetamura</p>
-                 <p>Varietal: Sangiovese</p>
-                 <p>Price: $10.99</p>
-                 <p>Snoothrank: 4.5/5</p>
-                 <div class="card-action">
-                   <a target="_blank" href="http://www.wine-searcher.com/find/badia+a+coltibuono+cetamura+chianti/1/usa-94710-20?Xlist_format=&Xbottle_size=all&Xprice_set=CUR&Xprice_min=&Xprice_max=&Xshow_favourite=">Buy Now</a>
-                   <a class="activator" id="badia-a-coltibuono-cetamura-chianti-2012-1">More Info</a>
-                 </div>
-           </div>
-           <div class="card-reveal paper2">
-             <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-             <a target="_blank" href="http://www.wine-searcher.com/find/badia+a+coltibuono+cetamura+chianti/1/usa-94710-20?Xlist_format=&Xbottle_size=all&Xprice_set=CUR&Xprice_min=&Xprice_max=&Xshow_favourite=">Buy Now</a>
-             <p></p>
-           </div>
-          </div> -->
-        <!-- </div> -->
-      </div>
     </div>
   </body>
 </html>
-  <!-- bottle div for returned wines -->
-  <!-- <div class="row">
-    <div class="bottle col l4" id="badia-a-coltibuono-cetamura-chianti-2012-1">
-      <div class="top">
-        <div class="cap"></div>
-        <div class="ridge"></div>
-        <div class="ridge"></div>
-        <div class="ridge"></div>
-        <div class="bottleneck">
-          <div class="ribbon"></div>
-          <div class="highlight1"></div>
-        </div>
-      </div>
-      <div class="bottlebody">
-        <a class="btn-floating btn-large waves-effect waves-light green lighten-2" target="_blank" href="http://www.wine-searcher.com/find/badia+a+coltibuono+cetamura+chianti/1/usa-94710-20?Xlist_format=&Xbottle_size=all&Xprice_set=CUR&Xprice_min=&Xprice_max=&Xshow_favourite=">Buy!</a>
-        <p class='bottleTitle'>Badia a Coltibuono Cetamura Chianti</p>
-        <div class="card" >
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator z-depth-1" src="http:\/\/ei.isnooth.com\/multimedia\/4\/f\/e\/image_3922569_square.jpeg">
-          </div>
-           <div class="card-content paper1 activator">
-                 <p>Region: Italy > Tuscany > Chianti</p>
-                 <p>Winery: Cetamura</p>
-                 <p>Varietal: Sangiovese</p>
-                 <p>Price: $10.99</p>
-                 <p>Snoothrank: 4.5/5</p>
-           </div>
-           <div class="card-reveal paper2">
-             <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-             <p></p>
-           </div>
-        </div>
-      </div>

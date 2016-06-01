@@ -1,66 +1,40 @@
 body {
-  background-image: url('images/green_dust_scratch/green_dust_scratch_@2X.png');
+  background-image: url("images/winery-865093_1920.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #cccccc;
+  font-family: Didot;
 }
 .card-content {
   background-color:#E9ECF5;
 }
 [for] {
-  color: #4A7B9D;
-}
-nav {
-  margin-bottom: 4%;
+  color: #E9ECF5;
 }
 .btn {
-  color: #54577C;
+  color: black;
 }
-/*bottle div css*/
-/*.bottleneck, .bottlebody, .ridge {
-	background-color:#A3C3D9;
+#zipSubmit {
+  background-color: #00A6A6;
 }
-.top {
-  margin: 0 29% 0 auto;
+nav {
+  background-color: #00A6A6;
 }
-.cap {
-	height: 1em;
-	width: 70px;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	background-color: #333;
-	margin: 0 auto;
+#title {
+  margin-top: 4%;
 }
-.ridge {
-	height: .5em;
-	width: 70px;
-	border-radius: 10px;
-	margin: 2.5px auto;
+#zip {
+  margin-top: none;
 }
-.bottle {
-	position:relative;*/
-	float:left;
-	margin-right:2em;
-	margin: 0 auto;
+p {
+  color: black;
 }
-.ribbon {
-	width:0px;
-	height:0px;
-	margin:0 auto;
-	border:30px solid rgba(0,0,0,.3);
-	border-bottom-color:transparent;
-	position:absolute;
+a {
+  color: black;
 }
-.bottleneck {
-	height:6em;
-	width:60px;
-	margin:0 auto;
+input {
+  color: #E9ECF5;
 }
-.bottlebody {
-	width:200px;
-	height:21em;
-	margin-top: -2em;
-  padding-top: 25%;
-	padding-bottom:3em;
-	border-radius:150px;
-	border-bottom-right-radius:20px;
-	border-bottom-left-radius:20px;
-	position:relative;
-}*/
+.card-reveal {
+  overflow: scroll;
+}
