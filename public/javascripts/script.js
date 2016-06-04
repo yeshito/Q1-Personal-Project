@@ -170,7 +170,7 @@ var zipcode = '';
           }
         }
 
-        var finalURLRequest = `http://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&n=20&c=US&lang=en&s=sr${urlInput}`
+        var finalURLRequest = `https://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&n=20&c=US&lang=en&s=sr${urlInput}`
         console.log(finalURLRequest);
         var wineResultsArray = []
 
@@ -275,7 +275,7 @@ var zipcode = '';
         var divToPopulate = $(this).parent().parent().next();
         console.log(this);
         console.log(bottleID);
-        var bottleURL = `http://api.snooth.com/wine/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&food=1&lang=en&id=${bottleID}`
+        var bottleURL = `https://api.snooth.com/wine/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&food=1&lang=en&id=${bottleID}`
         console.log(bottleURL)
 
         $.ajax({
