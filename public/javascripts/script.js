@@ -256,7 +256,7 @@ var zipcode = '';
                  <p>Snoothrank: ${wineObject.snoothrank}</p>
                <div class="card-action">
                  <a target="_blank" href="http://www.wine-searcher.com/find/${wineSearchName}/1/usa-${zipcode}-100?Xlist_format=&Xbottle_size=all&Xprice_set=CUR&Xprice_min=&Xprice_max=&Xshow_favourite=">Buy</a>
-                 <a class="activator" id=${wineObject.code}>More</a>
+                 <a href="#" class="activator" id=${wineObject.code}>More</a>
                </div>
          </div>
          <div class="card-reveal paper2">
