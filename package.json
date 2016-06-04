@@ -1,0 +1,23 @@
+{
+  "name": "q1-personal-project",
+  "version": "1.0.0",
+  "description": "The task of navigating shelf after shelf of confusing wine labels, can be daunting for most wine consumers who just want to find a bottle to enjoy. After finally picking a bottle, the results can be disappointing. I created this app as a way to make the process of finding a bottle of wine that you enjoy at your price point an easy and enjoyable process.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeshito/Q1-Personal-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yeshito/Q1-Personal-Project/issues"
+  },
+  "homepage": "https://github.com/yeshito/Q1-Personal-Project#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
