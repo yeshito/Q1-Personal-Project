@@ -238,8 +238,10 @@ var zipcode = '';
 
       // creates image div only if there is an image url returned
       if (wineObject.image) {
+        var httpImgURLString = wineObject.split('s').join('');
+        console.log(httpImgURLString);
         cardImage = `<div class="card-image waves-effect waves-block waves-light">
-                          <img src=${wineObject.image}>
+                          <img src=${httpImgURLString}>
                          </div>`;
       }
 
