@@ -238,7 +238,7 @@ var zipcode = '';
 
       // creates image div only if there is an image url returned
       if (wineObject.image) {
-        var httpImgURLString = wineObject.image.split('s').join('');
+        var httpImgURLString = wineObject.image.replace(/ttp/, 'ttps');
         console.log(httpImgURLString);
         cardImage = `<div class="card-image waves-effect waves-block waves-light">
                           <img src=${httpImgURLString}>
