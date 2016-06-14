@@ -172,7 +172,7 @@ var zipcode = '';
 
         var finalURLRequest = `https://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&n=20&c=US&lang=en&s=sr${urlInput}`
         console.log(finalURLRequest);
-        var wineResultsArray = []
+        var wineResultsArray = [];
 
         // initial ajax request
         $.ajax({
@@ -238,7 +238,7 @@ var zipcode = '';
 
       // creates image div only if there is an image url returned
       if (wineObject.image) {
-        var httpImgURLString = wineObject.image.split('s').join('');
+        var httpImgURLString = wineObject.image.split('https:').join('');
         console.log(httpImgURLString);
         cardImage = `<div class="card-image waves-effect waves-block waves-light">
                           <img src=${httpImgURLString}>
