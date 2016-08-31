@@ -38,3 +38,6 @@ input {
 .card-reveal {
   overflow: scroll;
 }
+label {
+  color: black !important;
+}
