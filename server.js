@@ -9,5 +9,5 @@ app.get('/', function(req, res){
 });
 
 app.listen(PORT, function() {
-  console.log("Starting a server on localhost: 8000");
+  ("Starting a server on localhost: 8000");
 });

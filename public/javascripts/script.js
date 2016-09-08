@@ -19,7 +19,6 @@ var countryVariety = '';
 var zipcode = '';
   $('#zipSubmit').mouseup(function() {
     zipcode = $('#zipcode').val();
-    console.log(zipcode);
     $('#wineType').fadeIn();
   });
 
@@ -33,7 +32,6 @@ var zipcode = '';
     $('#whiteVarieties').hide();
     wineArguments.variety = ''
     hideFinalSelectors();
-    console.log(wineArguments.wineType);
 
     if(wineArguments.wineType === 'red' || wineArguments.wineType === 'white') {
       $('#countryVariety').fadeIn();
@@ -44,7 +42,6 @@ var zipcode = '';
         $('#countries').hide();
         hideFinalSelectors();
         countryVariety = $(e.target).attr('for');
-        console.log(countryVariety);
 
           if(countryVariety === 'variety' && wineArguments.wineType === 'red') {
             $('#redVarieties').fadeIn();
@@ -57,7 +54,6 @@ var zipcode = '';
               $('#whiteVarieties').hide();
               hideFinalSelectors();
               wineArguments.variety = $(e.target).attr('for')
-              console.log(wineArguments.variety);
               winePrice();
             });
 
@@ -69,7 +65,6 @@ var zipcode = '';
 
             $('#whiteVarieties label').mouseup(function(e) {
               wineArguments.variety = $(e.target).attr('for')
-              console.log(wineArguments.variety);
               winePrice();
             });
           } else {
@@ -98,7 +93,6 @@ var zipcode = '';
         $('#countries label').mouseup(function(e) {
           $('#maxPrice').hide();
           wineArguments.country = $(e.target).attr('for')
-          console.log(wineArguments.country);
           winePrice();
         });
       }
@@ -109,7 +103,6 @@ var zipcode = '';
 
         $('#maxPrice label').mouseup(function(e) {
           wineArguments.maxPrice = $(e.target).attr('for')
-          console.log(wineArguments.maxPrice)
           $('#completeButton').fadeIn();
         });
       };
@@ -171,7 +164,6 @@ var zipcode = '';
         }
 
         var finalURLRequest = `https://api.snooth.com/wines/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&n=20&c=US&lang=en&s=sr${urlInput}`
-        console.log(finalURLRequest);
         var wineResultsArray = [];
 
         // initial ajax request
@@ -181,7 +173,6 @@ var zipcode = '';
           success: function(data) {
             data = JSON.parse(data)
             var numReturnedWines = data.meta.returned;
-            console.log('returned wines ' + numReturnedWines);
 
             if (!numReturnedWines) {
               $('#noResults').fadeIn();
@@ -195,7 +186,6 @@ var zipcode = '';
               } else {
                 selectThreeWines(30)
               }
-              console.log(wineResultsArray);
 
               createWineCardRow(wineResultsArray);
 
@@ -209,13 +199,12 @@ var zipcode = '';
                     previousChoices.push(currentWineChoice);
                   }
                 } while (wineResultsArray.length < 3);
-                console.log(previousChoices);
               }
             }
             },
           error: function(errorObject, textStatus) {
-              console.log(errorObject);
-              console.log(textStatus);
+            console.log(errorObject);
+            console.log(textStatus);
           }
         });
       });
@@ -228,7 +217,6 @@ var zipcode = '';
         var cardDiv = createBottle(wineElement);
         cardRow.append(cardDiv);
       });
-      //$('.container').append('</div>');
       populateMoreData();
     }
 
@@ -239,7 +227,6 @@ var zipcode = '';
       // creates image div only if there is an image url returned
       if (wineObject.image) {
         var httpImgURLString = wineObject.image.replace(/https:/, '');
-        console.log(httpImgURLString);
         cardImage = `<div class="card-image waves-effect waves-block waves-light">
                           <img src=${httpImgURLString}>
                          </div>`;
@@ -273,12 +260,10 @@ var zipcode = '';
     function populateMoreData () {
 
       $('.activator').one('click', function(e) {
+        e.preventDefault();
         var bottleID = this.id;
         var divToPopulate = $(this).parent().parent().next();
-        console.log(this);
-        console.log(bottleID);
         var bottleURL = `https://api.snooth.com/wine/?akey=977mbzz45u7unhx1vg0fs4iw9r8wpzmpxm78d1yf89dhueit&food=1&lang=en&id=${bottleID}`
-        console.log(bottleURL)
 
         $.ajax({
           url: bottleURL,
