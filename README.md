@@ -10,8 +10,8 @@ I found that only certain red and white varieties, and countries yielded results
 
 
 #Technologies used:
-HTML5
-CSS3
+* HTML5
+* CSS3
 Javascript
 JQuery 2.2.4
 Materialize
