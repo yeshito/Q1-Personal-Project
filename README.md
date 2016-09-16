@@ -1,3 +1,5 @@
+![Image of Wine Discovery Website](https://wine-discovery.herokuapp.com/)
+
 # Wine-Discovery
 The task of navigating shelf after shelf of confusing wine labels, can be daunting for most wine consumers who just want to find a bottle to enjoy. After finally picking a bottle, the results can be disappointing. This common problem was the inspiration for creating Wine Discovery. Though there are apps such as winesearcher.com and snooth.com that are very good for finding a specific wine that you already have in mind, there is a need for an app that finds that specific wine that you like in the first place. This app makes the process of finding that bottle of wine that you enjoy at your price point easy and enjoyable.
 
@@ -10,10 +12,10 @@ I found that only certain red and white varieties, and countries yielded results
 
 
 #Technologies used:
-HTML5
-CSS3
-Javascript
-JQuery 2.2.4
-Materialize
-Postman
-Heroku
+* HTML5
+* CSS3
+* Javascript
+* JQuery 2.2.4
+* Materialize
+* Postman
+* Heroku
