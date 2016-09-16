@@ -1,4 +1,4 @@
-![Image of Wine Discovery Website](website-image/?raw=true)
+![Image of Wine Discovery Website](website image/wine-discovery.png/?raw=true)
 
 # Wine-Discovery
 The task of navigating shelf after shelf of confusing wine labels, can be daunting for most wine consumers who just want to find a bottle to enjoy. After finally picking a bottle, the results can be disappointing. This common problem was the inspiration for creating Wine Discovery. Though there are apps such as winesearcher.com and snooth.com that are very good for finding a specific wine that you already have in mind, there is a need for an app that finds that specific wine that you like in the first place. This app makes the process of finding that bottle of wine that you enjoy at your price point easy and enjoyable.
